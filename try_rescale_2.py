@@ -7,49 +7,6 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 import skimage
 from numpy import matlib as mb
 import imageio
-
-# Load training images and labels
-x_train_list = np.load('train_images.npy', encoding='bytes')
-train_labels = pd.read_csv('train_labels.csv')
-x_test_list = np.load('test_images.npy', encoding='bytes')
-
-#imageio.mimwrite('./images', x_train_list)
-
-
-import numpy as np
-import matplotlib as mpl
-# mpl.use('Agg')
-import matplotlib.pyplot as plt
-
-img = np.ones((100, 200))
-img[25:75, 50:150] = 0
-
-fig = plt.figure()
-ax = fig.gca()
-
-ax.imshow(img)
-ax.axis('tight')
-
-plt.subplots_adjust(0,0,1,1,0,0)
-
-plt.show()
-
-data = np.fromstring(fig.canvas.tostring_rgb(), dtype=np.uint8, sep='')
-w, h = fig.canvas.get_width_height()
-data = data.reshape((h, w, 3))
-
-plt.close()
-
-#--------------------------------------------------------------------------------------------
-import numpy as np
-import pandas as pd
-import random
-import matplotlib
-import matplotlib.pyplot as plt
-get_ipython().run_line_magic('matplotlib', 'inline')
-import skimage
-from numpy import matlib as mb
-import imageio
 import cv2
 import imageio as iio
 from skimage import filters
@@ -220,43 +177,3 @@ x_train_crop = np.array(x_train_crop)
 plt.imshow(x_train_crop[2].reshape(40,40))
 plt.axis("off")
 plt.show()
-
-#ret,thresh = cv2.threshold(img,127,255,0)
-#thresh, im_bw = cv2.threshold(img, 127, 255, 0)
-#contours,hierarchy = cv2.findContours(im_bw, 1, 2)
-
-x,y,w,h = cv2.boundingRect()
-cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
